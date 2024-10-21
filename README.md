@@ -33,9 +33,6 @@ Comme demandé dans le cadre du kata, j'ai utilisé la stack suivante pour le pr
 
 ### Dépendances supplémentaires ajoutées
 
-- **dotenv**
-  - **dotenv** a été ajouté pour gérer les variables d'environnement. Il permet de stocker les configurations sensibles (comme les secrets JWT et les informations de la base de données) dans un fichier `.env` et d'éviter de les exposer dans le code.
-
 - **jsonwebtoken**
   - **jsonwebtoken** a été utilisé pour gérer l'authentification et la gestion des tokens JWT. Ce module est essentiel pour sécuriser les routes et protéger l'accès aux ressources sensibles.
 
@@ -60,6 +57,9 @@ Bien que certaines technologies supplémentaires auraient pu simplifier ou amél
 - **NestJS** :
   - **NestJS** est un framework sur-Express basé sur TypeScript qui offre une structure modulaire, une gestion des dépendances intégrée, et des fonctionnalités avancées pour le développement d'API, comme la gestion des WebSockets, des microservices, et plus encore.
   - Bien qu'il aurait été possible de migrer le projet vers **NestJS** pour profiter de ces fonctionnalités, cela aurait dévié de la stack demandée, qui reposait sur Express.js pour sa simplicité et sa flexibilité.
+  
+- **dotenv**
+  - **dotenv** aurait pu être ajouter pour gérer les variables d'environnement. Il permet de stocker les configurations sensibles (comme les secrets JWT et les informations de la base de données) dans un fichier `.env` et d'éviter de les exposer dans le code. Pour ce test je ne l'ai pas fait.
 
 ## 2. Choix de l'architecture hexagonale
 

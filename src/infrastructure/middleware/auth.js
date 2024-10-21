@@ -6,7 +6,7 @@ async function generateToken(req, res) {
     // Générer le token JWT sans lien avec un utilisateur
     const token = jwt.sign(
       {},
-      process.env.JWT_SECRET, // Clé secrète de signature (dans .env)
+      'your_secret_key_here', // Clé secrète de signature 
       { expiresIn: '1h' }     // Durée de validité du token
     );
 
@@ -23,7 +23,7 @@ function authenticateToken(req, res, next) {
     return res.status(401).json({ message: 'Access denied, no token provided.' });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+  jwt.verify(token, 'your_secret_key_here', (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid or expired token' });
     }

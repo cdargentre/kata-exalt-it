@@ -6,7 +6,7 @@ const connectAndInitialize = require('./infrastructure/db/dbInitializer');
 const routes = require('./infrastructure/routes'); 
 const setupSwagger = require('./infrastructure/swagger/swagger'); 
 const dbMiddleware = require('./infrastructure/middleware/db-middleware');
-require('dotenv').config(); 
+
 
 const app = express();
 
@@ -39,7 +39,7 @@ const startServer = async () => {
     console.log('Database initialized successfully');
 
     // Démarrage du serveur
-    const PORT = process.env.PORT || 3000;
+    const PORT = 3000;
     const server = app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });

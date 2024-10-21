@@ -56,7 +56,7 @@ describe('User Routes - Invalid Token', () => {
 describe('User Routes - Valid Token', () => {
 
     it('should return 201 when trying to create a user a valid token', async () => {
-        const secret = process.env.JWT_SECRET || 'your_secret_key_here';
+        const secret = 'your_secret_key_here';
   
         // Créer un token valide (simuler un utilisateur avec un id ou rôle par exemple)
         const validToken = jwt.sign({ id: 'user123', role: 'admin' }, secret, { expiresIn: '1h' });
@@ -88,7 +88,7 @@ describe('User Routes - Valid Token', () => {
   
     it('should return 200 when trying to retrieve all users with a valid token', async () => {
       // Clé secrète utilisée pour signer les tokens
-      const secret = process.env.JWT_SECRET || 'your_secret_key_here';
+      const secret = 'your_secret_key_here';
   
       // Créer un token valide
       const validToken = jwt.sign({ id: 'user123', role: 'admin' }, secret, { expiresIn: '1h' });
