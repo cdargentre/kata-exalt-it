@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
-const url = process.env.MONGODB_URI || 'mongodb://localhost:27017';
-const dbName = process.env.DB_NAME || 'kata_cdargentre';
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017';;
+const dbName = 'kata_cdargentre';
 
 let db;
 
