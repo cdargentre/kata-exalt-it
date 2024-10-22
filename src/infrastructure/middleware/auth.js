@@ -1,12 +1,19 @@
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
+
+function generateSecretKey() {
+  return crypto.randomBytes(64).toString('hex'); // Génère une clé secrète de 64 octets
+}
+const JWT_SECRET = generateSecretKey();
 // Générer un Token JWT (login ou registration)
 async function generateToken(req, res) {
+
   try {
     // Générer le token JWT sans lien avec un utilisateur
     const token = jwt.sign(
-      {},
-      'your_secret_key_here', // Clé secrète de signature 
+      {}, // On pourrait rajouter ici des données significatives dans le payload comme l'id, le mail du user
+      JWT_SECRET, // Clé secrète de signature 
       { expiresIn: '1h' }     // Durée de validité du token
     );
 
@@ -23,7 +30,7 @@ function authenticateToken(req, res, next) {
     return res.status(401).json({ message: 'Access denied, no token provided.' });
   }
 
-  jwt.verify(token, 'your_secret_key_here', (err, user) => {
+  jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid or expired token' });
     }
